@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(''); 
+            background-size: cover; 
+            background-position: center; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            color: white; 
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-btn {
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s, color 0.3s; /* Added transition for background color */
+            background-color: rgba(255, 255, 255, 0.8); /* Light white background */
+            color: black; /* Black text color */
+            border: 1px solid rgba(255, 165, 0, 0.3); /* Optional: Light border to define button */
+        }
+
+        .header-btn:hover {
+            background-color: #FFA300; /* Change to orange on hover */
+            color: white; /* Change text to pure white on hover */
+        }
+
+        /* Hero Section Styles */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .search-container {
+            margin-top: 30px;
+            position: relative;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 30px;
+            border: none;
+            font-size: 1rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            color: #777;
+        }
+
+        .popular-searches {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .popular-btn {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+
+        .popular-btn:hover {
+            background-color: #FFA300;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .category-box {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .category-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-icon {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #ffa300;
+        }
+
+        .category-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: black; /* Default color */
+            transition: color 0.3s ease; 
+        }
+
+        .category-box:hover .category-title {
+            color: #ffa300; /* Color on hover */
+        }
+
+        .category-desc {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* Knowledge Base Styles */
+        .knowledge-base {
+            margin-top: 70px;
+        }
+
+        .knowledge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .knowledge-box {
+            background-color: black;
+            color: white;
+            border-radius: 10px;
+            padding: 25px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .knowledge-box:hover {
+            background-color: #FFA300;
+        }
+
+        .knowledge-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .knowledge-desc {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 100px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .footer-link {
+            transition: color 0.3s;
+        }
+
+        .footer-link:hover {
+            color: #FFA300;
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero {
+                padding: 50px 20px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .popular-searches {
+                flex-wrap: wrap;
+            }
+
+            .category-box {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <!-- Editable Logo -->
+            <a href="#">
+                <img src="/api/placeholder/200/40" alt="Company Logo" id="companyLogo">
+            </a>
+        </div>
+        <div class="header-buttons">
+            <a href="#" class="header-btn" id="submitRequestBtn">Submit a request</a>
+            <a href="#" class="header-btn" id="signInBtn">Sign In</a>
+        </div>
+    </header>
+    
+    <!-- Hero Section with Search -->
+    <section class="hero" id="heroSection">
+        <div class="hero-content">
+            <h1>How can we help?</h1>
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="Search Caldera Community...">
+                <i class="fas fa-search search-icon"></i>
+                <div class="popular-searches">
+                    <a href="#" class="popular-btn" id="installationBtn">Installation</a>
+                    <a href="#" class="popular-btn" id="brandingBtn">Branding</a>
+                    <a href="#" class="popular-btn" id="productsBtn">Products</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Categories -->
+        <section class="categories">
+            <div class="category-box" id="startConversationBox">
+                <div class="category-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3 class="category-title">Start a Conversation</h3>
+                <p class="category-desc">Learn how to use our products and get started quickly</p>
+            </div>
+            
+            <div class="category-box" id="calderaBox">
+                <div class="category-icon">
+                    <i class="fas fa-question-circle"></i>
+                </div>
+                <h3 class="category-title">Visit Caldera.com</h3>
+                <p class="category-desc">Find answers to frequently asked questions</p>
+            </div>
+            
+            <div class="category-box" id="communityBox">
+                <div class="category-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="category-title">Community</h3>
+                <p class="category-desc">Join our community forum to connect with other users</p>
+            </div>
+            
+            <div class="category-box" id="submitRequestBox">
+                <div class="category-icon">
+                    <i class="fas fa-paper-plane"></i>
+                </div>
+                <h3 class="category-title">Submit a Request</h3>
+                <p class="category-desc">Contact our support team for assistance</p>
+            </div>
+        </section>
+
+        <!-- Knowledge Base Section -->
+        <section class="knowledge-base">
+            <h2 class="section-title">Based on your knowledge</h2>
+            <div class="knowledge-grid">
+                <div class="knowledge-box" id="knowledgeBox1">
+                    <h3 class="knowledge-title">Getting Started Guide</h3>
+                    <p class="knowledge-desc">Everything you need to know to begin using our services</p>
+                </div>
+                
+                <div class="knowledge-box" id="knowledgeBox2">
+                    <h3 class="knowledge-title">Advanced Features</h3>
+                    <p class="knowledge-desc">Take your experience to the next level with these tips</p>
+                </div>
+                
+                <div class="knowledge-box" id="knowledgeBox3">
+                    <h3 class="knowledge-title">Troubleshooting</h3>
+                    <p class="knowledge-desc">Common issues and how to resolve them quickly</p>
+                </div>
+                
+                <div class="knowledge-box" id="knowledgeBox4">
+                    <h3 class="knowledge-title">Best Practices</h3>
+                    <p class="knowledge-desc">Learn how to get the most out of our platform</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="#" class="footer-link">About</a>
+            <a href="#" class="footer-link">Blog</a>
+            <a href="#" class="footer-link">Contact</a>
+            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">Terms of Service</a>
+        </div>
+        <p class="copyright">© 2025 Your Company Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript for Editable Components
+        document.addEventListener('DOMContentLoaded', function() {
+            // Editable Background for Hero Section
+            const heroBackgroundUrl = localStorage.getItem('heroBackgroundUrl') || 'https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80';
+            document.getElementById('heroSection').style.backgroundImage = `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${heroBackgroundUrl}')`;
+            
+            // Set the same background image for the header
+            document.querySelector('header').style.backgroundImage = `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${heroBackgroundUrl}')`;
+    
+            // Editable Company Logo
+            const logoUrl = localStorage.getItem('logoUrl') || '/api/placeholder/200/40';
+            document.getElementById('companyLogo').src = logoUrl;
+    
+            // Editable Link Functions
+            function setupEditableLink(elementId, defaultUrl, storageKey) {
+                const element = document.getElementById(elementId);
+                if (element) {
+                    // Set initial href from localStorage or use default
+                    element.href = localStorage.getItem(storageKey) || defaultUrl;
+    
+                    // Allow editing on right-click (for admin purposes)
+                    element.addEventListener('contextmenu', function(e) {
+                        e.preventDefault();
+                        const newUrl = prompt('Enter new URL for this link:', element.href);
+                        if (newUrl !== null) {
+                            element.href = newUrl;
+                            localStorage.setItem(storageKey, newUrl);
+                        }
+                    });
+                }
+            }
+    
+            // Setup all editable links
+            setupEditableLink('startConversationBox', '#', 'startConversationUrl');
+            setupEditableLink('calderaBox', '#', 'calderaUrl');
+            setupEditableLink('communityBox', '#', 'communityUrl');
+            setupEditableLink('submitRequestBox', '#', 'submitRequestBoxUrl');
+            setupEditableLink('submitRequestBtn', '#', 'submitRequestBtnUrl');
+            setupEditableLink('signInBtn', '#', 'signInUrl');
+            setupEditableLink('installationBtn', '#', 'installationUrl');
+            setupEditableLink('brandingBtn', '#', 'brandingUrl');
+            setupEditableLink('productsBtn', '#', 'productsUrl');
+            setupEditableLink('knowledgeBox1', '#', 'knowledgeBox1Url');
+            setupEditableLink('knowledgeBox2', '#', 'knowledgeBox2Url');
+            setupEditableLink('knowledgeBox3', '#', 'knowledgeBox3Url');
+            setupEditableLink('knowledgeBox4', '#', 'knowledgeBox4Url');
+    
+            // Setup admin panel for editing background and logo
+            const adminButton = document.createElement('button');
+            adminButton.textContent = 'Admin Settings';
+            adminButton.style.position = 'fixed';
+            adminButton.style.bottom = '10px';
+            adminButton.style.right = '10px';
+            adminButton.style.padding = '8px 12px';
+            adminButton.style.backgroundColor = '#333';
+            adminButton.style.color = 'white';
+            adminButton.style.border = 'none';
+            adminButton.style.borderRadius = '5px';
+            adminButton.style.cursor = 'pointer';
+            adminButton.style.display = 'none';
+            adminButton.style.zIndex = '1000';
+    
+            document.body.appendChild(adminButton);
+    
+            // Show admin button on Ctrl+Shift+A
+            document.addEventListener('keydown', function(e) {
+                if (e.ctrlKey && e.shiftKey && e.key === 'A') {
+                    e.preventDefault();
+                    adminButton.style.display = adminButton.style.display === 'none' ? 'block' : 'none';
+                }
+            });
+    
+            // Admin panel functionality
+            adminButton.addEventListener('click', function() {
+                const newBgUrl = prompt('Enter new background image URL for hero section:', heroBackgroundUrl);
+                if (newBgUrl !== null) {
+                    document.getElementById('heroSection').style.backgroundImage = `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${newBgUrl}')`;
+                    document.querySelector('header').style.backgroundImage = `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${newBgUrl}')`;
+                    localStorage.setItem('heroBackgroundUrl', newBgUrl);
+                }
+    
+                const newLogoUrl = prompt('Enter new company logo URL:', logoUrl);
+                if (newLogoUrl !== null) {
+                    document.getElementById('companyLogo').src = newLogoUrl;
+                    localStorage.setItem('logoUrl', newLogoUrl);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
