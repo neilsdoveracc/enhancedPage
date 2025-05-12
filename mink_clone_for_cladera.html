@@ -65,7 +65,7 @@
         /* Hero Section Styles */
         .hero {
             text-align: center;
-            padding: 80px 20px;
+            padding: 50px 20px;
             background-size: cover;
             background-position: center;
             color: white;
@@ -82,6 +82,12 @@
         .hero h1 {
             font-size: 2.5rem;
             margin-bottom: 20px;
+        }
+
+        .subheading {
+            font-size: 1rem; /* Same font size as "Submit a Request" */
+            color: #ffffff; /* Same color as "How can we help" */
+            margin-bottom: 20px; /* Space between this line and the search box */
         }
 
         .search-container {
@@ -105,8 +111,20 @@
             color: #777;
         }
 
+        .popular-searches-container {
+            display: flex; /* Use flexbox for inline layout */
+            align-items: center; /* Center vertically */
+            margin-top: 20px; /* Space above the container */
+            justify-content: center; /* Center the entire container */
+        }
+
+        .popular-searches-label {
+            font-size: 1rem; /* Match the font size of the buttons */
+            color: white; /* Change this to match your design */
+            margin-right: 10px; /* Space between label and buttons */
+        }
+
         .popular-searches {
-            margin-top: 20px;
             display: flex;
             justify-content: center;
             gap: 15px;
@@ -182,6 +200,49 @@
             text-align: center;
         }
 
+        /* Promotion Styles */
+        .promoted-articles {
+            background-color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .promoted-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+
+        .promoted-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .promoted-card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            transition: box-shadow 0.3s;
+        }
+
+        .promoted-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .promoted-card h3 {
+            color: #ffa300;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .promoted-card p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
         /* Knowledge Base Styles */
         .knowledge-base {
             margin-top: 70px;
@@ -216,6 +277,93 @@
         .knowledge-desc {
             font-size: 0.9rem;
             color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* More Resources Styles */
+        .more-resources {
+            background-color: white;
+            padding: 50px 20px;
+        }
+
+        .resource-main-title{
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .resource-item {
+            text-align: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .resource-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .resource-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #ffa300;
+        }
+
+        .resource-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: black; /* Default color */
+            transition: color 0.3s; /* Smooth transition for color change */
+        }
+
+        .resource-item:hover .resource-title {
+            color: #ffa300; /* Color on hover */
+        }
+
+        .resource-description {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Can't Find Section */
+        .cant-find {
+            background-color: #f5f5f5;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .cant-find-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cant-find-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .submit-request-btn {
+            background-color: #ff6f2d;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        .submit-request-btn:hover {
+            background-color: #FFA300;
         }
 
         /* Footer Styles */
@@ -279,7 +427,7 @@
         <div class="logo">
             <!-- Editable Logo -->
             <a href="#">
-                <img src="/api/placeholder/200/40" alt="Company Logo" id="companyLogo">
+                <img src="https://live.staticflickr.com/65535/54508004115_6f5c13fdeb_n.jpg" alt="Company Logo" id="companyLogo">
             </a>
         </div>
         <div class="header-buttons">
@@ -292,14 +440,18 @@
     <section class="hero" id="heroSection">
         <div class="hero-content">
             <h1>How can we help?</h1>
+            <p class="subheading">Search our knowledge base or browse content below</p>
             <div class="search-container">
                 <input type="text" class="search-box" placeholder="Search Caldera Community...">
                 <i class="fas fa-search search-icon"></i>
-                <div class="popular-searches">
-                    <a href="#" class="popular-btn" id="installationBtn">Installation</a>
-                    <a href="#" class="popular-btn" id="brandingBtn">Branding</a>
-                    <a href="#" class="popular-btn" id="productsBtn">Products</a>
-                </div>
+            </div>
+            <div class="popular-searches-container">
+                <span class="popular-searches-label">Popular Searches:</span> 
+                    <div class="popular-searches">
+                        <a href="#" class="popular-btn" id="installationBtn">Installation</a>
+                        <a href="#" class="popular-btn" id="brandingBtn">License</a>
+                        <a href="#" class="popular-btn" id="productsBtn">Products</a>
+                    </div>
             </div>
         </div>
     </section>
@@ -308,11 +460,12 @@
     <div class="main-content">
         <!-- Categories -->
         <section class="categories">
-            <div class="category-box" id="startConversationBox">
+            <div class="category-box" id="startConversationBox"
+            onclick="window.location.href='https://dovercorporation1689781560.zendesk.com/hc/en-us/community/posts/new';">
                 <div class="category-icon">
                     <i class="fas fa-rocket"></i>
                 </div>
-                <h3 class="category-title">Start a Conversation</h3>
+                <h3 class="category-title">Getting Started</h3>
                 <p class="category-desc">Learn how to use our products and get started quickly</p>
             </div>
             
@@ -341,6 +494,25 @@
             </div>
         </section>
 
+        <!-- Promoted Articles Section -->
+        <section class="promoted-articles">
+            <h2 class="promoted-title">Promoted articles</h2>
+            <div class="promoted-grid">
+                <div class="promoted-card" id="promotedArticle1">
+                    <h3>What is Lotus Themes?</h3>
+                    <p>Lotus Themes is your destination for well-developed themes for your Zendesk G...</p>
+                </div>
+                <div class="promoted-card" id="promotedArticle2">
+                    <h3>Zendesk partnership</h3>
+                    <p>Rest assured that we provide you with the best services as Lotus Themes is on...</p>
+                </div>
+                <div class="promoted-card" id="promotedArticle3">
+                    <h3>What you can do yourself with Themes</h3>
+                    <p>Zendesk Guide templates from Lotus Themes are ideal for both beginners and ex...</p>
+                </div>
+            </div>
+        </section>    
+
         <!-- Knowledge Base Section -->
         <section class="knowledge-base">
             <h2 class="section-title">Based on your knowledge</h2>
@@ -366,6 +538,43 @@
                 </div>
             </div>
         </section>
+
+        <!-- More Resources Section -->
+        <section class="more-resources">
+            <h2 class="resource-main-title">More Resources</h2>
+            <div class="resources-grid">
+                <div class="resource-item" id="resourceItem1">
+                    <div class="resource-icon"><i class="fas fa-file-alt"></i></div>
+                    <h3 class="resource-title">Register your product</h3>
+                    <p class="resource-description">You can get support that's tailored to you, owner exclusives and more</p>
+                </div>
+                <div class="resource-item" id="resourceItem2">
+                    <div class="resource-icon"><i class="fas fa-clock"></i></div>
+                    <h3 class="resource-title">Our helpline hours</h3>
+                    <p class="resource-description">8:00am - 8:00pm CST<br>Monday to Friday; 8:00am - 6:00pm CST</p>
+                </div>
+                <div class="resource-item" id="resourceItem3">
+                    <div class="resource-icon"><i class="fas fa-paper-plane"></i></div>
+                    <h3 class="resource-title">Follow us on X</h3>
+                    <p class="resource-description">Get the latest news and updates first</p>
+                </div>
+                <div class="resource-item" id="resourceItem4">
+                    <div class="resource-icon"><i class="fab fa-youtube"></i></div>
+                    <h3 class="resource-title">YouTube Support</h3>
+                    <p class="resource-description">For how-to and support videos please visit our channel</p>
+                </div>
+            </div>
+        </section>
+    
+
+        <!-- Can't Find Section -->
+        <section class="cant-find">
+            <div class="cant-find-content">
+                <h2 class="cant-find-title">Can't find what you're looking for?</h2>
+                <p>Our customer care team is here for you!</p>
+                <button class="submit-request-btn" id="submitRequest">Submit a request</button>
+            </div>
+        </section>    
     </div>
 
     <!-- Footer -->
@@ -391,42 +600,32 @@
             document.querySelector('header').style.backgroundImage = `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${heroBackgroundUrl}')`;
     
             // Editable Company Logo
-            const logoUrl = localStorage.getItem('logoUrl') || '/api/placeholder/200/40';
+            const logoUrl = localStorage.getItem('logoUrl') || 'https://live.staticflickr.com/65535/54508004115_6f5c13fdeb_n.jpg';
             document.getElementById('companyLogo').src = logoUrl;
     
             // Editable Link Functions
-            function setupEditableLink(elementId, defaultUrl, storageKey) {
+            function setupLink(elementId, hardcodedUrl) {
                 const element = document.getElementById(elementId);
                 if (element) {
-                    // Set initial href from localStorage or use default
-                    element.href = localStorage.getItem(storageKey) || defaultUrl;
-    
-                    // Allow editing on right-click (for admin purposes)
-                    element.addEventListener('contextmenu', function(e) {
-                        e.preventDefault();
-                        const newUrl = prompt('Enter new URL for this link:', element.href);
-                        if (newUrl !== null) {
-                            element.href = newUrl;
-                            localStorage.setItem(storageKey, newUrl);
-                        }
-                    });
+                    // Set initial href to the hardcoded URL
+                    element.href = hardcodedUrl;
                 }
             }
     
             // Setup all editable links
-            setupEditableLink('startConversationBox', '#', 'startConversationUrl');
-            setupEditableLink('calderaBox', '#', 'calderaUrl');
-            setupEditableLink('communityBox', '#', 'communityUrl');
-            setupEditableLink('submitRequestBox', '#', 'submitRequestBoxUrl');
-            setupEditableLink('submitRequestBtn', '#', 'submitRequestBtnUrl');
-            setupEditableLink('signInBtn', '#', 'signInUrl');
-            setupEditableLink('installationBtn', '#', 'installationUrl');
-            setupEditableLink('brandingBtn', '#', 'brandingUrl');
-            setupEditableLink('productsBtn', '#', 'productsUrl');
-            setupEditableLink('knowledgeBox1', '#', 'knowledgeBox1Url');
-            setupEditableLink('knowledgeBox2', '#', 'knowledgeBox2Url');
-            setupEditableLink('knowledgeBox3', '#', 'knowledgeBox3Url');
-            setupEditableLink('knowledgeBox4', '#', 'knowledgeBox4Url');
+            setupLink('startConversationBox', 'https://dovercorporation1689781560.zendesk.com/hc/en-us/community/posts/new');
+            setupLink('calderaBox', 'https://example.com/caldera');
+            setupLink('communityBox', 'https://example.com/community');
+            setupLink('submitRequestBox', 'https://example.com/submit-request');
+            setupLink('submitRequestBtn', 'https://example.com/submit-request-btn');
+            setupLink('signInBtn', 'https://example.com/sign-in');
+            setupLink('installationBtn', 'https://example.com/installation');
+            setupLink('brandingBtn', 'https://example.com/branding');
+            setupLink('productsBtn', 'https://example.com/products');
+            setupLink('knowledgeBox1', 'https://example.com/knowledge1');
+            setupLink('knowledgeBox2', 'https://example.com/knowledge2');
+            setupLink('knowledgeBox3', 'https://example.com/knowledge3');
+            setupLink('knowledgeBox4', 'https://example.com/knowledge4');
     
             // Setup admin panel for editing background and logo
             const adminButton = document.createElement('button');
